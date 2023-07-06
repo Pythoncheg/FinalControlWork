@@ -1,0 +1,63 @@
+@startuml
+class BaseClass {
+#String name
+#ArrayList<> commands
+#int age
+-getName () : String
+-getAge () : int
+}
+interface Interface {
+-getAge () : int
++setName () : void
++setNewCommand () : void
+-getCommand () : String
+}
+Interface <|.. BaseClass
+class Pets {
++String name
++String command
++int age
+}
+BaseClass <|.. Pets
+class PackAnimals {
++String name
++String command
++int age
+}
+BaseClass <|.. PackAnimals
+class Dog {
++setNewCommand () : void
++setName () : void
+}
+Pets <|.. Dog
+class Cat {
++setNewCommand () : void
++setName () : void
+-getCommand () : String
+}
+Pets <|.. Cat
+class Hamster {
++setNewCommand () : void
++setName () : void
+-getCommand () : String
+}
+Pets <|.. Hamster
+class Horse {
++setNewCommand () : void
++setName () : void
+-getCommand () : String
+}
+PackAnimals <|.. Horse
+class Camel {
++setNewCommand () : void
++setName () : void
+-getCommand () : String
+}
+PackAnimals <|.. Camel
+class Donkey {
++setNewCommand () : void
++setName () : void
+-getCommand () : String
+}
+PackAnimals <|.. Donkey
+@enduml
