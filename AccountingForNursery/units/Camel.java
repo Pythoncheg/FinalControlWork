@@ -3,7 +3,7 @@ package AccountingForNursery.units;
 import java.util.ArrayList;
 
 public class Camel extends PackAnimals{
-    protected Camel(String name, ArrayList<String> commands, int age) {
-        super(name, commands, age);
+    public Camel(String name, String command, int age) {
+        super(name, command, age, "Camel");
     }
 }

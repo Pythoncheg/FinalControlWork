@@ -3,9 +3,9 @@ package AccountingForNursery.units;
 import java.util.ArrayList;
 
 public interface Interface {
-    int getAge();
+    double getAge();
 
     String getName();
 
-    ArrayList<String> getCommands();
+    String getCommand();
 }
