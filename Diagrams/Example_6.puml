@@ -1,13 +1,13 @@
 @startuml
 class BaseClass {
 #String name
-#ArrayList<> commands
-#int age
+#String command
+#double age
 -getName () : String
--getAge () : int
+-getAge () : double
 }
 interface Interface {
--getAge () : int
+-getAge () : double
 +setName () : void
 +setNewCommand () : void
 -getCommand () : String
@@ -16,13 +16,13 @@ Interface <|.. BaseClass
 class Pets {
 +String name
 +String command
-+int age
++double age
 }
 BaseClass <|.. Pets
 class PackAnimals {
 +String name
 +String command
-+int age
++double age
 }
 BaseClass <|.. PackAnimals
 class Dog {
