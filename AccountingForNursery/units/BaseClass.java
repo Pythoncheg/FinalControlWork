@@ -13,5 +13,15 @@ public abstract class BaseClass implements Interface {
         this.age = age;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public ArrayList<String> getCommands() {
+        return commands;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }
