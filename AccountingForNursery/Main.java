@@ -1,10 +1,8 @@
 package AccountingForNursery;
 
 import AccountingForNursery.units.BaseClass;
-import AccountingForNursery.units.Cat;
-
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Main {
     public static final ArrayList<BaseClass> animals = new ArrayList<>();
@@ -14,12 +12,11 @@ public class Main {
         System.out.println("Выберите пункт меню:\n");
         while (true) {
             View.menu();
-            Actions.run(animals, Actions.choiceMenu());
+            Actions.runMenu(animals, Actions.choiceMenu());
+
+            for (int i = 0; i < animals.size(); i++) {
+                System.out.println(animals.get(i).toString());
+            }
         }
-//        System.out.println("\n Итоговая запись:\n");
-//        for (int i = 0; i < animals.size(); i++) {
-//            System.out.println(animals.get(i).toString());
-
-
     }
 }

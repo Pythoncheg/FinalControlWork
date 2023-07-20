@@ -41,12 +41,11 @@ public abstract class BaseClass implements Interface {
         while (true) {
             System.out.println("Введите имя нового животного:");
             String name = scanner.nextLine();
-            if (name.matches("Aa-Zz")) {
-                return name;
-            } else {
+            if (name.matches("[A-Za-z]")) return name;
+            else {
                 System.out.println("Ошибка в имени используйте только латинские буквы!\n");
             }
-            scanner.close();
+//            scanner.close();
         }
     }
 
