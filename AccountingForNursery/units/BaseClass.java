@@ -1,15 +1,19 @@
 package AccountingForNursery.units;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public abstract class BaseClass implements Interface {
     protected String name;
-    protected String command;
+    protected List<String> command;
     protected double age;
     protected String type;
 
-    protected BaseClass(String name, String command, int age, String type) {
+    protected BaseClass(String name, List<String> command, int age, String type) {
         this.name = name;
         this.command = command;
         this.age = age;
@@ -17,10 +21,13 @@ public abstract class BaseClass implements Interface {
     }
     @Override
     public String toString() {
-        double ageToYear = age / 12;
+        double monthToYear = age / 12;
+        DecimalFormat decimalFormat = new DecimalFormat("#.#");
+        String ageToYear = decimalFormat.format(monthToYear);
         return type +
                 " Имя: " + name +
-                " Возраст: " + age + "мес." + "(" + ageToYear + "года)" +
+                " Возраст: " + age + "мес. " +
+                "(" + ageToYear + "года)" +
                 " Знает команду: " + command;
     }
 
@@ -28,8 +35,8 @@ public abstract class BaseClass implements Interface {
         return name;
     }
 
-    public String getCommand() {
-        return command;
+    public List<String> getCommand() {
+        return null;
     }
 
     public double getAge() {
@@ -41,16 +48,15 @@ public abstract class BaseClass implements Interface {
         while (true) {
             System.out.println("Введите имя нового животного:");
             String name = scanner.nextLine();
-            if (name.matches("[A-Za-z]")) return name;
+            if (name.matches("^[A-Za-z]+$")) return name;
             else {
                 System.out.println("Ошибка в имени используйте только латинские буквы!\n");
             }
-//            scanner.close();
         }
     }
 
-    public static String setCommand() {
-        return "Сидеть";
+    public static List<String> setCommand() {
+        return null;
     }
 
     public static int setAge() {

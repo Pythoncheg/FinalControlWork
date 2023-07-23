@@ -1,7 +1,6 @@
 package AccountingForNursery;
 
-import AccountingForNursery.units.BaseClass;
-import AccountingForNursery.units.Cat;
+import AccountingForNursery.units.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -49,19 +48,25 @@ public class Actions {
                 array.add(new Cat(BaseClass.setName(), BaseClass.setCommand(), BaseClass.setAge()));
                 break;
             case 2:
-                Actions.remove();
+                array.add(new Dog(BaseClass.setName(), BaseClass.setCommand(), BaseClass.setAge()));
                 break;
             case 3:
-                Actions.viewCommands();
+                array.add(new Hamster(BaseClass.setName(), BaseClass.setCommand(), BaseClass.setAge()));
                 break;
             case 4:
-                Actions.addCommands();
+                array.add(new Horse(BaseClass.setName(), BaseClass.setCommand(), BaseClass.setAge()));
                 break;
             case 5:
+                array.add(new Camel(BaseClass.setName(), BaseClass.setCommand(), BaseClass.setAge()));
                 break;
             case 6:
+                array.add(new Donkey(BaseClass.setName(), BaseClass.setCommand(), BaseClass.setAge()));
                 break;
-            case -1:
+            case 7:
+                View.menu();
+                runMenu(array, choiceMenu());
+                break;
+            case -2:
                 InputExeptions.menuExeptions();
                 break;
         }
@@ -79,7 +84,7 @@ public class Actions {
     public static int choiceType() {
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
-        if (choice.matches("[1-6]")) return Integer.parseInt(choice);
+        if (choice.matches("[1-7]")) return Integer.parseInt(choice);
         else return -2;
     }
 }

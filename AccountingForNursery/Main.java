@@ -1,6 +1,7 @@
 package AccountingForNursery;
 
 import AccountingForNursery.units.BaseClass;
+
 import java.util.ArrayList;
 
 
@@ -13,10 +14,9 @@ public class Main {
         while (true) {
             View.menu();
             Actions.runMenu(animals, Actions.choiceMenu());
+            View.printListAnimals(animals);
 
-            for (int i = 0; i < animals.size(); i++) {
-                System.out.println(animals.get(i).toString());
-            }
         }
     }
 }
+

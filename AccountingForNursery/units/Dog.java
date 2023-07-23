@@ -1,9 +1,9 @@
 package AccountingForNursery.units;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Dog extends Pets{
-    public Dog(String name, String command, int age) {
-        super(name, command, age, "Dog");
+    public Dog(String name, List<String> command, int age) {
+        super(name, command, age, "Собака");
     }
 }
