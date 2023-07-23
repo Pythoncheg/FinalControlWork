@@ -3,12 +3,15 @@ package AccountingForNursery;
 import AccountingForNursery.units.*;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Actions {
     public static void add(ArrayList<BaseClass> arrayList) {
         View.animalsType();
         runTypeMenu(arrayList, choiceType());
+        Counter.add();
+        Counter.getCount();
     }
 
     public static void remove(ArrayList<BaseClass> array) {
