@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Random;
 
 public class Cat extends Pets{
-    public Cat(String name, List<String> command, int age) {
-        super(name, command, age, "Кот");
+    public Cat(String name, int age) {
+        super(name, age, "Кот");
     }
 
     public static int setAge() {

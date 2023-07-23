@@ -3,7 +3,7 @@ package AccountingForNursery.units;
 import java.util.List;
 
 public abstract class Pets extends BaseClass {
-    protected Pets(String name, List<String> command, int age, String type){
-        super(name, command, age, type);
+    protected Pets(String name, int age, String type){
+        super(name, age, type);
     }
 }

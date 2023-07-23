@@ -1,5 +1,8 @@
 package AccountingForNursery.units;
 
+import AccountingForNursery.InputExeptions;
+import AccountingForNursery.View;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +16,13 @@ public abstract class BaseClass implements Interface {
     protected double age;
     protected String type;
 
-    protected BaseClass(String name, List<String> command, int age, String type) {
+    protected BaseClass(String name, int age, String type) {
         this.name = name;
-        this.command = command;
+        this.command = new ArrayList<>();
         this.age = age;
         this.type = type;
     }
+
     @Override
     public String toString() {
         double monthToYear = age / 12;
@@ -27,23 +31,35 @@ public abstract class BaseClass implements Interface {
         return type +
                 " Имя: " + name +
                 " Возраст: " + age + "мес. " +
-                "(" + ageToYear + "года)" +
-                " Знает команду: " + command;
+                "(" + ageToYear + "года)";
     }
 
     public String getName() {
         return name;
     }
 
-    public List<String> getCommand() {
-        return null;
+    public static void getCommand(ArrayList<BaseClass> arrayList) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Укажите номер животного, что бы увидеть список команд. ");
+            View.printListAnimals(arrayList);
+            String input = scanner.nextLine();
+            int choice = Integer.parseInt(input);
+            if (arrayList.get(choice - 1) != null) {
+                System.out.println(arrayList.get(choice - 1).command);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Животного с таким номером не существует!\n");;
+        } catch (NumberFormatException e) {
+            System.out.println("Вы ввели не число!\n");
+        }
     }
 
     public double getAge() {
         return age;
     }
 
-    public static String setName(){
+    public static String setName() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Введите имя нового животного:");
@@ -55,8 +71,26 @@ public abstract class BaseClass implements Interface {
         }
     }
 
-    public static List<String> setCommand() {
-        return null;
+    public static void setCommand(ArrayList<BaseClass> arrayList) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Укажите номер животного, которого вы хотите обучить: ");
+            View.printListAnimals(arrayList);
+            String input = scanner.nextLine();
+            int choice = Integer.parseInt(input);
+            if (arrayList.get(choice - 1) != null) {
+                System.out.println(arrayList.get(choice - 1));
+                View.addCommand();
+                input = scanner.nextLine();
+                arrayList.get(choice - 1).command.add(input);
+                View.addComlited();
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Животного с таким номером не существует!\n");;
+        } catch (NumberFormatException e) {
+            System.out.println("Вы ввели не число!\n");
+        }
+
     }
 
     public static int setAge() {

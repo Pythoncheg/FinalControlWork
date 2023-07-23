@@ -8,5 +8,6 @@ public interface Interface {
 
     String getName();
 
-    List<String> getCommand();
+    static void getCommand(ArrayList<BaseClass> arrayList) {
+    }
 }
